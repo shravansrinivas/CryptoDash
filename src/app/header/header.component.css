@@ -1,0 +1,13 @@
+nav{
+  margin-top: 10px;
+  font-family: cursive;
+}
+
+a, h2{
+  text-decoration: none;
+}
+
+a:hover{
+  font-size: 150%;
+  text-decoration: none;
+}

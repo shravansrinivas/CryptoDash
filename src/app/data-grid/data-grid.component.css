@@ -1,0 +1,12 @@
+button{
+  border-radius: 20;
+  margin: 20px 20px 20px 20px;
+  }
+
+
+  .alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    font-size: large;
+  }

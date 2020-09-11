@@ -1,0 +1,69 @@
+
+fa-icon{
+  width: 40px;
+  height: 40px;
+}
+
+
+
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+}
+
+mat-sidenav-container{
+  height: 100%
+}
+
+mat-sidenav, mat-sidenav-content{
+  padding: 16px;
+
+}
+
+mat-sidenav{
+  background-color: #000012;
+  width: 200px;
+}
+
+a:hover{
+ color: yellow;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+a{
+  text-decoration: none;
+  background-color: orange;
+  color: #000012;
+  font-family: cursive;
+  font-size: 15px;
+
+}
+mat-list-item{
+  border: 1px;
+  border-style: solid;
+  color: aliceblue;
+  background-color: antiquewhite;
+}
+
+.breadcrumb{
+  background-color: orange;
+  color: black;
+  height: 35px;
+}
+
+
+*{
+  background-color: #000012;
+  color: white;
+}
+li{
+  background-color: orange;
+  font-family: cursive;
+  color: #000012;
+  font-size: 15px;
+}

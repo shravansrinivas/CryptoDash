@@ -1,0 +1,149 @@
+<div class="row">
+  <div class="col-md-2 col-sm-12 col-xs-12" style="border-right: 2px solid black;">
+    <div cdkDropListGroup>
+      <div class="example-container">
+        <h2>TOP COINS</h2>
+
+        <div
+          style="width: 100%;"
+          cdkDropList
+          [cdkDropListData]="topCoins"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <mat-chip-list *ngFor="let coin of topCoins" cdkDrag>
+            <mat-chip
+              selectable="true"
+              removable="true"
+              (removed)="remove(coin, 'coin')"
+              >{{ coin.name
+              }}<mat-icon matChipRemove>cancel</mat-icon></mat-chip
+            >
+          </mat-chip-list>
+        </div>
+      </div>
+      <hr />
+      <div class="example-container">
+        <h2>TOP EXCHANGES</h2>
+
+        <div
+          cdkDropList
+          [cdkDropListData]="topExchanges"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <mat-chip-list *ngFor="let exchange of topExchanges" cdkDrag>
+            <mat-chip
+              selectable="true"
+              removable="true"
+              (removed)="remove(exchange, 'exchange')"
+              >{{ exchange.name }}
+              <mat-icon matChipRemove>cancel</mat-icon></mat-chip
+            >
+          </mat-chip-list>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-12 col-xs-12">
+    <div
+      class="card text-white bg-success mb-3"
+      style="max-width: 30rem; max-height: 15rem; margin: 25px 5px 0px 30px;"
+    >
+      <div class="card-body">
+        <a routerLink="exchanges"><h2 class="card-title">{{ exchanges.length }} <br>EXCHANGES</h2></a>
+      </div>
+    </div>
+    <div
+      class="card text-white bg-success mb-3"
+      style="max-width: 30rem; max-height: 15rem; margin: 25px 5px 5px 30px;"
+    >
+      <div class="card-body">
+        <a routerLink="coins"><h2 class="card-title">{{ coins.length }} <br>COINS</h2></a>
+      </div>
+    </div>
+  <!--  <div id="plot">
+    <plotly-plot [data]="barPlot.data" [layout]="barPlot.layout" [revision]="0" [debug]="debug" [useResizeHandler]="useResizeHandler" >kk</plotly-plot>
+  </div>-->
+  </div>
+  <div class="col-md-7 col-sm-12 col-xs-12">
+    <div class="col-sm-12 col-xs-12">
+    <h2 style="text-align: center;">Top Coins</h2>
+    <table border="2px solid black" class="table table-hover table-primary">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Coin Name</th>
+          <th>Price</th>
+          <th>Change(in 24 Hrs.)</th>
+        </tr>
+      </thead>
+      <tbody class="table-warning">
+        <tr *ngFor="let coin of topCoins">
+          <td>{{ coin.rank }}</td>
+          <td>{{ coin.id.toUpperCase() }}</td>
+          <td>$ {{ coin.priceUsd }}</td>
+          <ng-template *ngIf="coin.changePercent24Hr > 0; then pos; else neg">
+          </ng-template>
+
+          <ng-template #pos
+            ><td id="pos">
+              <fa-icon class="fa-1x" [icon]="upArrow"></fa-icon>
+              {{ coin.changePercent24Hr }} %
+            </td></ng-template
+          >
+          <ng-template #neg
+            ><td id="neg">
+              <fa-icon class="fa-1x" [icon]="downArrow"></fa-icon>
+              {{ coin.changePercent24Hr }} %
+            </td></ng-template
+          >
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+  <div class="col-sm-12">
+    <h2 style="text-align: center;">Top Exchanges</h2>
+    <table border="2px solid black" class="table table-hover table-primary">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Exchange Name</th>
+          <th>Price</th>
+          <th>Change in Price in 24 Hrs.</th>
+        </tr>
+      </thead>
+      <tbody class="table-warning">
+        <tr *ngFor="let exchange of topExchanges">
+          <td>{{ exchange.trust_score_rank }}</td>
+          <td>{{ exchange.id.toUpperCase() }}</td>
+          <td>$ {{ exchange.trade_volume_24h_btc }}</td>
+          <ng-template
+            *ngIf="
+              exchange.trade_volume_24h_btc_normalized >=
+                exchange.trade_volume_24h_btc;
+              then pos;
+              else neg
+            "
+          >
+          </ng-template>
+
+          <ng-template #pos
+            ><td id="pos">
+              <fa-icon class="fa-1x" [icon]="upArrow"></fa-icon> $
+              {{ exchange.trade_volume_24h_btc-exchange.trade_volume_24h_btc_normalized }}
+            </td></ng-template
+          >
+          <ng-template #neg
+            ><td id="neg">
+              <fa-icon class="fa-1x" [icon]="downArrow"></fa-icon> $
+              {{ exchange.trade_volume_24h_btc-exchange.trade_volume_24h_btc_normalized }}
+            </td></ng-template
+          >
+        </tr>
+      </tbody>
+    </table>
+  </div>  </div>
+  </div>
+</div>

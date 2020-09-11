@@ -1,0 +1,33 @@
+.example-chip-list {
+  width: 100%;
+}
+
+row{
+  text-align: center;
+}
+
+
+#pos{
+  color: green;
+}
+
+#neg{
+  color: maroon;
+}
+table{
+  width: 700px;
+}
+tbody{
+  font-size: 11px;
+}
+
+.card-title{
+  text-align: center;
+  color: rgb(164, 240, 13);
+  font-size: 30px;
+  font-family: fantasy;
+}
+
+#plot{
+  margin: 20px 10px 0px 30px;
+}

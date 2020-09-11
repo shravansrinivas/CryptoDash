@@ -1,0 +1,28 @@
+<button (click)="closeModal()" style="justify-items: right; margin-right: 300px;"><fa-icon  class="fa-2x" [icon]="closeIcon"></fa-icon></button>
+
+<mat-tab-group>
+  <mat-tab label="Data Table">
+    <table class="table table-hover table-primary">
+      <thead >
+        <tr > <th *ngFor="let col of tableColumns">{{col.toUpperCase()}}</th></tr>
+      </thead>
+      <tbody>
+        <tr class="table-active" *ngFor="let row of dataSource">
+
+          <td>{{row.rank}}</td>
+          <td>{{row.name}}</td>
+          <td>{{row.marketCapUsd}}</td>
+          <td>{{row.volumeUsd24Hr}}</td>
+          <td>{{row.priceUsd}}</td>
+          <td>{{row.changePercent24Hr}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </mat-tab>
+  <mat-tab label="Chart">
+
+    <plotly-plot [data]="barPlot.data" [layout]="barPlot.layout" [revision]="0" [debug]="debug" [useResizeHandler]="useResizeHandler" ></plotly-plot>
+  </mat-tab>
+</mat-tab-group>
+

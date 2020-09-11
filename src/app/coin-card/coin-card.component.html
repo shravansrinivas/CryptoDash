@@ -1,0 +1,14 @@
+<div class="card text-white bg-success" style="max-width: 100rem;">
+<div class="row">  <div class="card-header col-md-9">Coin Details</div> <div class="col-md-1"><button (click)="closeModal()" style="justify-items: right; margin-right: 300px;"><fa-icon  class="fa-2x" [icon]="closeIcon"></fa-icon></button></div></div>
+  <div class="card-body">
+    <h4 class="card-title">{{name}}
+    </h4>
+    <div class="card-text" style="text-align: center;">
+      <h5>Rank : {{ rank }}</h5>
+      <h5>Price : ${{ priceUsd }}</h5>
+      <h5>Market Capital : ${{ marketCapUsd }}</h5>
+      <h5>Volume (in 24 Hours) : ${{ volumeUsd24Hr }}</h5>
+      <h5>Change in 24 Hours: {{ changePercent24Hr }}%</h5>
+    </div>
+  </div>
+</div>

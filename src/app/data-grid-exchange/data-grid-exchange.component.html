@@ -1,0 +1,27 @@
+<div class="row">
+<div class="col-sm-12">
+<hr>
+<input placeholder="What do you want to search?" style="text-align: center; color: green  " class="form-control" type="text" (keyup)="applyQuickSearch()" [(ngModel)]="dataSearch">
+<hr>
+  <ag-grid-angular
+  style="width: 1110px; height: 500px; text-decoration: solid;color: deeppink; margin: 20px auto;"
+  cellStyle="cellStyle"
+  class="ag-theme-balham"
+  #agGrid
+  (gridReady)="onGridReady($event)"
+  [headerHeight]=50
+  paginationPageSize=20
+  [animateRows]="true"
+  [frameworkComponents]="frameworkComponents"
+  [pagination]="true"
+  [enableSorting]="true"
+  [enableFilter]="true"
+  [rowData]="rowData | async"
+  (rowClicked)="onRowClicked($event)"
+  [columnDefs]="columnDefs">
+
+</ag-grid-angular>
+
+<button class="btn btn-sm btn-primary" (click)=exportExcelSheet()>Export Excel Sheet</button>
+<button class="btn btn-sm btn-success" (click)=exportCSVSheet()>Export CSV Sheet</button>
+</div></div>
